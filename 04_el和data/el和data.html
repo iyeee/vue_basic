@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>start一</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        
+    </head>
+    <body>
+        <div id="demo">
+            <h1>hello,{{name.toUpperCase()}}</h1>
+            <h2>ads:{{1+1}},{{Date.now()}}}}</h2>
+
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip=false
+            // const v= new Vue({
+            //     // el:'.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            //     // el:document.getElementById('root')
+            //     data:{
+            //         name:'wyyy'
+            //     }
+            // })
+            // console.log(v)
+            // setTimeout(()=>{
+            // v.$mount('#demo')},1000
+            // );
+            const v= new Vue({
+                el:'#demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+                // el:document.getElementById('root')
+                // data:function(){
+                //     console.log(this)
+                //     return{
+                //         name:"wyy"
+                //     }
+                // }
+                data(){
+                    console.log(this)
+                    return{
+                        name:"wyy"
+                    }
+                }
+            })
+            console.log(v)
+   
+        </script>
+    </body>
+</html>

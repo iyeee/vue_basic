@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>start一</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        
+    </head>
+    <body>
+        <div class="demo">
+            <h1>hello,{{name.toUpperCase()}}</h1>
+            <h2>ads:{{1+1}},{{Date.now()}}}}</h2>
+            <button v-on:click='showInfo'>点我提示信息</button>
+            <button @click='showInfo($event)'>点我提示信息</button>
+            <button @click='showInfo2(66,$event)'>点我提示信息</button>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip=false
+            const vm =new Vue({
+                el:'.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+                // el:document.getElementById('root')
+                data:{
+                    name:'wyyy'
+                },
+                methods:{
+                    showInfo(event){
+                        console.log(event.target.innerText)
+                        console.log(vm===this)
+                        alert('hello')
+                    },
+                    showInfo2(number){
+                        console.log(this)
+                        console.log(vm===this)
+                        console.log(number)
+                        console.log(event)
+                        alert('hello2')
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>

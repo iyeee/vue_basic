@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>start一</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div class="demo">
+        <h2>今天天气很{{info}}</h2>
+        <button @click="isHot=!isHot">切换天气</button>
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el: '.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            // el:document.getElementById('root')
+            data: {
+                isHot: true
+            },
+            computed: {
+                info() {
+                    return this.isHot ? '炎热' : '凉爽'
+                }
+            },
+            // methods: {
+            //     changeWeather() {
+            //         this.isHot = !this.isHot
+            //     }
+            // }
+        })
+    </script>
+</body>
+
+</html>

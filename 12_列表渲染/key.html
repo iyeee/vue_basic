@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>start一</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div class="demo">
+        <button @click.once="add">添加一个刘</button>
+        <ul>
+            <li v-for='(person,index) in persons' :key="person.id">
+                {{person.name}}-{{person.age}}
+                <input type="text"></input>
+            </li>
+       
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el: '.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            // el:document.getElementById('root')
+            data: {
+                persons: [
+                    {
+                        id: '001', name: '张三', age: 18
+                    },
+                    {
+                        id: '002', name: '张4', age: 19
+                    },{
+                        id: '003', name: '张5', age: 120
+                    }
+                ],
+            },
+            methods: {
+                add(){
+                    const p={id:'004',name:'lou',age:40}
+                    this.persons.unshift(p)
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

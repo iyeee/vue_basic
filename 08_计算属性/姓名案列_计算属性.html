@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>start一</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        
+    </head>
+    <body>
+        <div class="demo">
+            姓：<input type="text" v-model="firstName"><br/>
+            名：<input type="text" v-model="lastName"><br/>
+            姓名：<span>{{fullName}}</span><br/>
+            姓名：<span>{{fullName}}</span><br/>
+            姓名：<span>{{fullName}}</span><br/>
+            姓名：<span>{{fullName}}</span><br/>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip=false
+            const vm= new Vue({
+                el:'.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+                // el:document.getElementById('root')
+                data:{
+                    firstName:'张',
+                    lastName:'三'
+                },
+                computed:{
+                    fullName:{
+                        get(){
+                            console.log('get被调用')
+                            console.log(this)
+                            return  this.firstName+'-'+this.lastName
+                        },
+                        set(value){
+                            this.firstName=value.split('-')[0]
+                            this.lastName=value.split('-')[1]
+                            // const arr=value.split('-')
+                            // this.firstName=arr[0]
+                            // this.lastName=arr[1]
+
+                        }
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>

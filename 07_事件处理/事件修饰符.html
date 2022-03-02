@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>start一</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top:20px;
+        }
+        .demo1{
+            height:50px;
+            background-color:aqua
+        }
+    </style
+</head>
+
+<body>
+    <div class="demo">
+        <h1>hello,{{name.toUpperCase()}}</h1>
+        <h2>ads:{{1+1}},{{Date.now()}}}}</h2>
+        <a href="https://www.baidu.com" @click.prevent="showInfo">点我提示信息</a>
+        <div class="demo1" @click='showInfo'>
+            <button @click.stop="showInfo">点我提示信息</button>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+            new Vue({
+                el: ' .demo ', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+                // el:document.getElementById('root ')
+                data: {
+                    name: 'wyyy '
+                },
+                methods: {
+                    showInfo(e) {
+                        // e.preventDefault()
+                        alert('hello ')
+                    }
+                }
+            })
+        </script>
+</body>
+
+</html>

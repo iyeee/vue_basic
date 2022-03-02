@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>start一</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div class="demo">
+        <input type="text" placeholder="请输入" v-model="keyWord">
+        <ul>
+            <li v-for='(person,index) in fillPersons' :key="fillPersons.id">
+                {{person.name}}-{{person.age}}
+                <input type="text"></input>
+            </li>
+
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el: '.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            // el:document.getElementById('root')
+            data: {
+                keyWord: '',
+                persons: [
+                    {
+                        id: '001', name: '张5', age: 18
+                    },
+                    {
+                        id: '002', name: '张4', age: 19
+                    }, 
+                    {
+                        id: '003', name: '张5', age: 120
+                    }
+                ],
+            },
+                // fillPersons: []
+            computed:{
+                fillPersons(){
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyWord) !== -1
+                })
+                }
+            },
+            //#region 
+            // watch: {
+            //     keyWord: {
+            //         immediate: true,
+            //         handler(val) {
+            //             this.fillPersons = this.persons.filter((p) => {
+            //                 return p.name.indexOf(val) !== -1
+            //             })
+            //         }
+
+            //     }
+            // }
+            //#endregion
+
+        })
+
+    </script>
+</body>
+
+</html>

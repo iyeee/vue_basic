@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>start一</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        
+    </head>
+    <body>
+        <div class="demo">
+            <h1 v-show='a'>hello,{{name.toUpperCase()}}</h1>
+            <h1 v-if='a'>hello,{{name.toUpperCase()}}</h1>
+            <h2>当前的值是：{{n}}</h2>
+            <button @click="n++">点我n++</button>
+            <div v-if="n===1">111</div>
+            <!-- <div>@</div> -->
+            <div v-else-if="n===1">222</div>
+            <div v-else-if="n===3">333</div>
+            <div v-else>666</div>
+            <template v-if="n===1">
+                <h2>12</h2>
+                <h2>32</h2>
+                <h2>412</h2>
+            </template>
+
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip=false
+            const vm= new Vue({
+                el:'.demo', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+                // el:document.getElementById('root')
+                data:{
+                    name:'ddd',
+                    a:true,
+                    n:0
+                }
+            })
+
+        </script>
+    </body>
+</html>
